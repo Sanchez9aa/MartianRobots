@@ -1,0 +1,115 @@
+//Sending one robot with oversize world limit
+
+POST http://localhost:8800/robot HTTP/1.1
+Content-Type: application/json
+
+{
+	"world": {
+		"x": 60,
+		"y": 50
+	},
+	"robots": [{
+		"start": {
+			"x": 3,
+			"y": 50,
+			"orientation": "N"
+		},
+		"sequence": ["F", "R"]
+	}]
+}
+
+###
+
+//Sending 0 robot
+
+POST http://localhost:8800/robot HTTP/1.1
+Content-Type: application/json
+
+{
+	"world": {
+		"x": 60,
+		"y": 50
+	},
+	"robots": []
+}
+
+###
+
+//Sending robot as a object (yep array is an object but not that object!)
+
+POST http://localhost:8800/robot HTTP/1.1
+Content-Type: application/json
+
+{
+	"world": {
+		"x": 60,
+		"y": 50
+	},
+	"robots": {}
+}
+
+###
+//Sending one robot with more than 100 sequences
+POST http://localhost:8800/robot HTTP/1.1
+Content-Type: application/json
+
+{
+	"world": {
+		"x": 40,
+		"y": 50
+	},
+	"robots": [{
+		"start": {
+			"x": 3,
+			"y": 50,
+			"orientation": "N"
+		},
+		"sequence": ["F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R"]
+	}]
+}
+
+###
+
+//Sending one robot with wrong starting positions
+
+POST http://localhost:8800/robot HTTP/1.1
+Content-Type: application/json
+
+{
+	"world": {
+		"x": 50,
+		"y": 50
+	},
+	"robots": [{
+		"start": {
+			"x": 60,
+			"y": 3,
+			"orientation": "N"
+		},
+		"sequence": ["F", "F", "R", "F"]
+	}]
+}
+
+###
+
+//Sending one robot with forward sequence
+
+POST http://localhost:8800/robot HTTP/1.1
+Content-Type: application/json
+
+{
+	"world": {
+		"x": 50,
+		"y": 50
+	},
+	"robots": [{
+		"start": {
+			"x": 3,
+			"y": 49,
+			"orientation": "N"
+		},
+		"sequence": ["F", "F", "R", "F"]
+	}]
+}
+
+###
