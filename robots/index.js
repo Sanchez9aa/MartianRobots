@@ -30,15 +30,45 @@ const moveLeft = (robot) => {
   }
 }
 
+const scent = (robot) => {
+  let scent = []
+  let robotLost = {
+    x: robot.x,
+    y: robot.y
+  }
+  scent.push(robotLost)
+}
+
 const moveForward = (robot) => {
+
+  //Check if robot is lost, if it is we return that robot is lost, also we get the coordinates for our scent
   const isRobotLost = isLost(robot)
-  if (isRobotLost) return { ...robot, lost: true };
+  if (isRobotLost){
+    var scentCoord = scent(robot)
+    return { ...robot, lost: true };
+  } 
+
+  //If we got an scent we chek that robot got that coordinate -1.
+  if(!scentCoord){
+    null
+  }else{
+    if(!scentCoord.some(x => (x.x === (robot.x - 1) && x.y === (robot.y - 1)))){
+      null
+    }else{
+      return robot
+    }
+  } 
   let newX = robot.x
   let newY = robot.y
 
-  robot.orientation === "N" || robot.orientation === "S"
-    ? newY++
-    : newX++
+  robot.orientation === "N"
+  ? newY++
+  : robot.orientation === "E"
+  ? newX++
+  : robot.orientation === "S"
+  ? newY--
+  : newX--
+
   return { ...robot, x: newX, y: newY }
 }
 
@@ -63,7 +93,6 @@ const doSequence = (sequence, robot) => {
 }
 
 const isLost = (robot) => {
-  console.log("isLost", robot)
   if (robot.world.x < robot.x || robot.world.y < robot.y) {
     scent(robot)
     return true
@@ -71,16 +100,7 @@ const isLost = (robot) => {
   else return false
 }
 
-const scent = (robot) => {
-  console.log(robot)
-  let scent
-  let robotLost = {
-    x: robot.x,
-    y: robot.y
-  }
-  scent.push(robotLost)
-  console.log(scent)
-}
+
 
 
 module.exports = doSequence

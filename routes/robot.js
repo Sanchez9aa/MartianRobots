@@ -5,7 +5,7 @@ const worldLimit = require("../world")
 const router = express.Router()
 
 router.post("/", (req,res) => {
-  const {world, robots} = req.body
+  const {world, robots, sequence} = req.body
 
   //Check if robot is one array
   if(!Array.isArray(robots)) return res.status(400).json({message: "Need to send yours robots as array", success:false})
@@ -17,17 +17,19 @@ router.post("/", (req,res) => {
   if(!worldLimit(world)) return res.status(400).json({message: "World size should be lesser or 50x50", success:false})
 
   //Check if instruction is less than 100 characters
-  robots.map(x => {
-    if(x.sequence.length > 100) return res.status(400).json({message: "This robot model do not allow more than 100 instructions.", success:false})  
-  })
+  if(robots[0].sequence.length > 100) return res.status(400).json({message: "This robot model do not allow more than 100 instructions.", success:false})  
 
   //Check if robot start is out of world size
-  robots.map(x=>{
-    if(x.start.x > world.x || x.start.y > world.y) return res.status(400).json({message: "Change start position options, we can not launch that robot to lost it!!!!!", success:false})  
+  if(robots[0].start.x > world.x || robots[0].start.y > world.y) return res.status(400).json({message: "Change start position options, we can not launch that robot to lost it!!!!!", success:false})
+
+  //Check is some sequence is invalid
+  const checkSequence = robots[0].sequence.map(x => {
+    if(x === "F" || x === "R" || x === "L" ) return true
+    else return false
   })
+  if(checkSequence.includes(false)) return res.status(400).json({message: "There are some sequences that this robot do not recognize, check the model one and follow the instructions", success:false})
   
   try{
-    console.log('hola')
     const robotPosition = robots.map(x => {
       let robot = {
         x: x.start.x,
