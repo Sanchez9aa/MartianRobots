@@ -6,13 +6,17 @@
   "scripts": {
     "start": "node index.js",
     "nodemon": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "testVerbose": "jest --verbose",
+    "testWatch": "jest --watch",
+    "testAll": "jest --watch --verbose"
   },
   "keywords": [],
   "author": "Jesús Sánchez",
   "license": "ISC",
   "devDependencies": {
     "dotenv": "^10.0.0",
+    "jest": "^27.4.1",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
