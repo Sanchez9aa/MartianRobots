@@ -1,6 +1,6 @@
 const express = require("express")
 const dotenv = require("dotenv")
-const robotRouter = require("./routes/robot")
+const robotRouter = require("./routes/robotRoute")
 const app = express()
 dotenv.config()
 
