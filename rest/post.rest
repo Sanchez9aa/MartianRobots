@@ -49,7 +49,7 @@ Content-Type: application/json
 }
 
 ###
-//Sending one robot with more than 100 sequences
+//Sending two robot and one with more than 100 sequences
 POST http://localhost:8800/robot HTTP/1.1
 Content-Type: application/json
 
@@ -64,35 +64,21 @@ Content-Type: application/json
 			"y": 50,
 			"orientation": "N"
 		},
+		"sequence": ["F", "R", "F"]
+	},
+	{
+		"start": {
+			"x": 3,
+			"y": 50,
+			"orientation": "N"
+		},
 		"sequence": ["F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R", "F", "R"]
 	}]
 }
 
 ###
 
-//Sending one robot with wrong starting positions
-
-POST http://localhost:8800/robot HTTP/1.1
-Content-Type: application/json
-
-{
-	"world": {
-		"x": 50,
-		"y": 50
-	},
-	"robots": [{
-		"start": {
-			"x": 60,
-			"y": 3,
-			"orientation": "N"
-		},
-		"sequence": ["F", "F", "R", "F"]
-	}]
-}
-
-###
-
-//Sending one robot with wrong sequence
+//Sending two robots, one with wrong starting positions
 
 POST http://localhost:8800/robot HTTP/1.1
 Content-Type: application/json
@@ -109,6 +95,44 @@ Content-Type: application/json
 			"orientation": "N"
 		},
 		"sequence": ["F", "F", "R", "F"]
+	},
+	{
+		"start": {
+			"x": 60,
+			"y": 3,
+			"orientation": "N"
+		},
+		"sequence": ["F", "F", "R", "F"]
+	}]
+}
+
+###
+
+//Sending two robots one with wrong sequence
+
+POST http://localhost:8800/robot HTTP/1.1
+Content-Type: application/json
+
+{
+	"world": {
+		"x": 50,
+		"y": 50
+	},
+	"robots": [{
+		"start": {
+			"x": 30,
+			"y": 3,
+			"orientation": "N"
+		},
+		"sequence": ["F", "F", "F", "F"]
+	},
+	{
+		"start": {
+			"x": 30,
+			"y": 3,
+			"orientation": "N"
+		},
+		"sequence": ["F", "F", "X", "F"]
 	}]
 }
 
@@ -130,7 +154,7 @@ Content-Type: application/json
 			"y": 3,
 			"orientation": "N"
 		},
-		"sequence": ["R", "F", "F", "F"]
+		"sequence": ["F"]
 	}]
 }
 
@@ -186,8 +210,8 @@ Content-Type: application/json
 	},
 	{
 		"start": {
-			"x": 7,
-			"y": 3,
+			"x":0,
+			"y":0,
 			"orientation": "W"
 		},
 		"sequence": ["R", "F", "F", "F"]
