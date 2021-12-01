@@ -4,7 +4,7 @@ const Robot = require("../models/Robots")
 //Get all robots
 router.get("/", async (req, res) => {
   try {
-    const robots = await Robot.find({lost:true})
+    const robots = await Robot.find()
     res.status(200).json(robots)
   } catch (err) {
     res.status(500).json({ message: err, success: false });
