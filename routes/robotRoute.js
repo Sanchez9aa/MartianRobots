@@ -62,7 +62,6 @@ const robotRouter = async (req, res) => {
     //We gotcha save a robot on our DB
     response.map(x => {
       let robot = new Robot(x)
-      console.log(robot)
       robot.save()
     })
 
