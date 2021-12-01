@@ -15,11 +15,11 @@
   "author": "Jesús Sánchez",
   "license": "ISC",
   "devDependencies": {
-    "dotenv": "^10.0.0",
     "jest": "^27.4.1",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.14"
   }
