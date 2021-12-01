@@ -284,8 +284,8 @@ describe("Handle document cases", () =>{
           lost: true
         },
         {
-          x: 4,
-          y: 2,
+          x: 3,
+          y: 3,
           orientation: "N",
           lost: false
         }
