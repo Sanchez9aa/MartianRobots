@@ -71,19 +71,19 @@ There is an error response for the following cases :
 - Check if robot start is out of world size
 - Check is some sequence is invalid
 
-<h3> GET /robot/get <h3>
+<h3> GET /robot/get </h3>
 
 All the robots that have been launched will be returned to us.
 
-<h3> GET /robot/get/:id <h3>
+<h3> GET /robot/get/:id </h3>
 
 The robot will be returned to us with the requested id.
 
-<h3> GET /robot/lost <h3>
+<h3> GET /robot/lost </h3>
 
 All robots that have been lost will be returned to us.
 
-<h3> GET /robot/alive <h3>
+<h3> GET /robot/alive </h3>
 
 All robots that have been launched and not lost will be returned to us.
 
