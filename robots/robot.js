@@ -48,7 +48,7 @@ const moveForward = (robot) => {
   const isRobotLost = isLost(robot)
   
   if (isRobotLost){
-    
+    scentCoord = scent(robot)
     return { ...robot, lost: true };
   } 
   //If we got an scent we chek that robot got that coordinate -1.
