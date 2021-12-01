@@ -176,7 +176,7 @@ Content-Type: application/json
 			"y": 3,
 			"orientation": "N"
 		},
-		"sequence": ["R", "F", "F", "F"]
+		"sequence": ["R", "F", "F", "F", "F"]
 	},
 	{
 		"start": {
@@ -184,7 +184,7 @@ Content-Type: application/json
 			"y": 3,
 			"orientation": "N"
 		},
-		"sequence": ["R", "F", "F", "F"]
+		"sequence": ["R", "F", "F", "F", "F"]
 	}]
 }
 
