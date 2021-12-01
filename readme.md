@@ -69,7 +69,7 @@ There is an error response for the following cases :
 - Check if world is between size limits
 - Check if instruction is less than 100 characters
 - Check if robot start is out of world size
-- Check is some sequence is invalid
+- Check if some sequence is invalid
 
 <h3> GET /robot/get </h3>
 

@@ -30,7 +30,7 @@ const robotRouter = async (req, res) => {
   })
   if (checkRobotStart.includes(true)) return res.status(400).json({ message: "Change start position options, we can not launch that robot to lost it!!!!!", success: false })
 
-  //Check is some sequence is invalid
+  //Check if some sequence is invalid
   const checkSequence = robots.map(x => {
     const check = x.sequence.map(x => {
       if (x === "F" || x === "R" || x === "L") return true
