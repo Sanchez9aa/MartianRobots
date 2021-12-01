@@ -1,8 +1,16 @@
+const fs = require("fs")
+
 const router = require("express").Router()
 
 router.get("/", async (req, res) => {
   try {
-    res.status(200).json("Go to https://github.com/sanchez9aa/MartianRobots if you want to know how this api works")
+    fs.readFile("./readme.md", "utf-8", (err, data) => {
+      if(err) console.log(err)
+      else {
+        res.status(200).send(data)
+      }
+    })
+    
   } catch (err) {
     res.status(500).json({ message: err, success: false });
   }
